@@ -6,9 +6,8 @@
 #include "Student_info.h"
 
 // constructors
-Student_info::Student_info() : midterm(0), final(0) { }; // default
-Student_info::Student_info(std::istream& is) { read(is); };
-
+Student_info::Student_info() : midterm(0), final(0) { }; // default, no arguments
+Student_info::Student_info(std::istream& is) { read(is); }; // with arguments
 
 
 
