@@ -12,7 +12,7 @@ public:
     Student_info(std::istream&);
     double grade() const;
     std::istream& read(std::istream&);
-    std::string name() const {return n};
+    std::string name() const { return n; };
 
 private:
     // implementation
@@ -25,6 +25,7 @@ private:
 };
 
 std::istream& read_hw(std::istream&, std::vector<double>&);
+double average(const std::vector<double>&);
 
 #endif // GUARD_Student_info_h
 
