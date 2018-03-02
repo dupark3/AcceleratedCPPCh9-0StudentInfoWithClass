@@ -23,12 +23,12 @@ int main()
 
     // write the names and grades of students
     for (std::vector<Student_info>::size_type i = 0; i != students.size(); ++i){
-        std::cout << students[i].n << std::string(maxLen + 1 - students[i].n.size(), ' ');
+        std::cout << students[i].name() << std::string(maxLen + 1 - students[i].name().size(), ' ');
         try {
             std::streamsize prec = std::cout.precision();
-            std::cout << setprecision(3) << students[i].grade()
-                      << setprecision(prec) << std::endl;
-        } catch (domain_error e) {
+            std::cout << std::setprecision(3) << students[i].grade()
+                      << std::setprecision(prec) << std::endl;
+        } catch (std::domain_error e) {
             std::cout << e.what() << std::endl;
         }
     }
