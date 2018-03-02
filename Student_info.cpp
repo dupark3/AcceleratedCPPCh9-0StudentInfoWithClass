@@ -10,12 +10,15 @@ std::istream& Student_info::read(std::istream& in){
     return in;
 }
 
-std::istream& read_hw(std::istream& is, std::vector<double> homework){
-    double n;
-    while (is >> n){
-        homework.push_back(n);
-    }
+std::istream& read_hw(std::istream& is, std::vector<double>& homework){
+    if (is){
+        homework.clear();
+        double x;
+        while(in >> x)
+            homework.push_back(x);
     is.clear();
+    }
+    return is;
 }
 
 double Student_info::grade(){
