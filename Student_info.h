@@ -8,12 +8,15 @@
 class Student_info {
 public:
     // interface
-    std::istream& read(std::istream&);
+    Student_info();
+    Student_info(std::istream&);
     double grade() const;
+    std::istream& read(std::istream&);
+    std::string name() const {return n};
 
 private:
     // implementation
-    std::string name;
+    std::string n;
     double midterm;
     double final;
     std::vector<double> homework;
