@@ -47,3 +47,8 @@ double average(const std::vector<double>& vec){
 
     return accumulate(vec.begin(), vec.end(), 0) / vec.size();
 }
+
+
+bool compare(const Student_info& x, const Student_info& y){
+    return x.name() < y.name();
+}

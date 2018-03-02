@@ -26,6 +26,6 @@ private:
 
 std::istream& read_hw(std::istream&, std::vector<double>&);
 double average(const std::vector<double>&);
-
+bool compare(const Student_info& x, const Student_info& y);
 #endif // GUARD_Student_info_h
 
