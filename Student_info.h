@@ -5,14 +5,20 @@
 #include <string>
 #include <vector>
 
-struct Student_info {
+class Student_info {
+public:
+    // interface
+    std::istream& read(std::istream&);
+    double grade() const;
+
+private:
+    // implementation
     std::string name;
     double midterm;
     double final;
     std::vector<double> homework;
 
-    std::istream& read(std::istream&);
-    double grade() const;
+
 };
 
 std::istream& read_hw(std::istream&, std::vector<double>&);
