@@ -15,5 +15,7 @@ struct Student_info {
     double grade() const;
 };
 
+std::istream& read_hw(std::istream&, std::vector<double>&);
+
 #endif // GUARD_Student_info_h
 
