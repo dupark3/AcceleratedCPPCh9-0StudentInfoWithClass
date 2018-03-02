@@ -1,5 +1,6 @@
-#include <algorithm> // accumulate
 #include <iostream>
+#include <numeric> // accumulate
+#include <stdexcept> // domain_error
 #include <string>
 #include <vector>
 
@@ -23,7 +24,7 @@ std::istream& read_hw(std::istream& is, std::vector<double>& homework){
     if (is){
         homework.clear();
         double x;
-        while(in >> x)
+        while(is >> x)
             homework.push_back(x);
     is.clear();
     }
@@ -36,10 +37,13 @@ std::istream& read_hw(std::istream& is, std::vector<double>& homework){
 // member function "grade" calls on nonmember function "average"
 double Student_info::grade() const{
     // implemented grade within this member function instead of calling an entire non-member function "grade"
-    return ((midterm * 0.2) + (final * 0.4) + (::averagae(homework) * 0.2));
+    if (homework.empty())
+        throw std::domain_error("No homework grades");
+    return ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.2));
 }
 
 // non-member function "average"
 double average(const std::vector<double>& vec){
+
     return accumulate(vec.begin(), vec.end(), 0) / vec.size();
 }
