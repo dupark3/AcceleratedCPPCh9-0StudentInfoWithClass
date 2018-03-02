@@ -21,6 +21,6 @@ std::istream& read_hw(std::istream& is, std::vector<double>& homework){
     return is;
 }
 
-double Student_info::grade(){
+double Student_info::grade() const{
     return ::grade(midterm, final, homework);
 }
