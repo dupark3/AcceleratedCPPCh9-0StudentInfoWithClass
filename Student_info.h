@@ -10,7 +10,7 @@ public:
     // interface
     Student_info();
     Student_info(std::istream&);
-    double grade() const;
+    double grade() const { return finalGrade; }; // inline
     std::istream& read(std::istream&);
     std::string name() const { return n; };
 
@@ -20,6 +20,7 @@ private:
     double midterm;
     double final;
     std::vector<double> homework;
+    double finalGrade;
 
 
 };

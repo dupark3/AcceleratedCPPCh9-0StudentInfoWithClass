@@ -10,12 +10,13 @@
 Student_info::Student_info() : midterm(0), final(0) { }; // default, no arguments
 Student_info::Student_info(std::istream& is) { read(is); }; // with arguments
 
-
-
 // member function "read"
 std::istream& Student_info::read(std::istream& in){
     in >> n >> midterm >> final;
     read_hw(in, homework);
+    if (homework.empty())
+        throw std::domain_error("No homework grades");
+    finalGrade = ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.2));
     return in;
 }
 
@@ -31,17 +32,6 @@ std::istream& read_hw(std::istream& is, std::vector<double>& homework){
     return is;
 }
 
-
-
-
-// member function "grade" calls on nonmember function "average"
-double Student_info::grade() const{
-    // implemented grade within this member function instead of calling an entire non-member function "grade"
-    if (homework.empty())
-        throw std::domain_error("No homework grades");
-    return ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.2));
-}
-
 // non-member function "average"
 double average(const std::vector<double>& vec){
 
@@ -49,6 +39,7 @@ double average(const std::vector<double>& vec){
 }
 
 
+// non-member predicate for sort. (used in main.cpp)
 bool compare(const Student_info& x, const Student_info& y){
     return x.name() < y.name();
 }
