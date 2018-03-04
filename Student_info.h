@@ -11,7 +11,7 @@ public:
     Student_info();
     Student_info(std::istream&);
     bool valid() const;
-    double grade() const;
+    void grade();
     std::istream& read(std::istream&);
     std::string name() const { return n; };
 

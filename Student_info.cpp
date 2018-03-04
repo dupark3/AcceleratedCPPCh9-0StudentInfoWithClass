@@ -35,11 +35,9 @@ std::istream& read_hw(std::istream& is, std::vector<double>& homework){
 
 
 // member function "grade" calls on nonmember function "average"
-double Student_info::grade() const{
+void Student_info::grade() const{
     // implemented grade within this member function instead of calling an entire non-member function "grade"
-    if (homework.empty())
-        throw std::domain_error("No homework grades");
-    return ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.2));
+    finalGrade = ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.2));
 }
 
 // non-member function "average"
