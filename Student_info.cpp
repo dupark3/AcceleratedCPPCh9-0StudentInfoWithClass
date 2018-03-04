@@ -16,7 +16,7 @@ std::istream& Student_info::read(std::istream& in){
     read_hw(in, homework);
     if (homework.empty())
         throw std::domain_error("No homework grades");
-    finalGrade = ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.2));
+    finalGrade = ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.4));
     return in;
 }
 
