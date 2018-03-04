@@ -14,6 +14,7 @@ public:
     void grade();
     std::istream& read(std::istream&);
     std::string name() const { return n; };
+    double showFinalGrade() const { return finalGrade; };
 
 private:
     // implementation
