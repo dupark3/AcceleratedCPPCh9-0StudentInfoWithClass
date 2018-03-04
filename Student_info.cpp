@@ -37,12 +37,11 @@ std::istream& read_hw(std::istream& is, std::vector<double>& homework){
 // member function "grade" calls on nonmember function "average"
 void Student_info::grade(){
     // implemented grade within this member function instead of calling an entire non-member function "grade"
-    finalGrade = ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.2));
+    finalGrade = ((midterm * 0.2) + (final * 0.4) + (::average(homework) * 0.4));
 }
 
 // non-member function "average"
 double average(const std::vector<double>& vec){
-
     return accumulate(vec.begin(), vec.end(), 0) / vec.size();
 }
 
