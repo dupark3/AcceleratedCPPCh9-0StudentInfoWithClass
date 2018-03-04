@@ -13,9 +13,13 @@ int main()
     std::string::size_type maxLen = 0;
 
     // read and store the data as class objects
-    while(record.read(std::cin)) {// calling on member function read
-        maxLen = std::max(maxLen, record.name().size());
-        students.push_back(record);
+    try {
+        while(record.read(std::cin)) {// calling on member function read
+            maxLen = std::max(maxLen, record.name().size());
+            students.push_back(record);
+        }
+    } catch(std::domain_error e) {
+        std::cout << e.what() << std::endl;
     }
 
     // alphabetize students by name
@@ -23,14 +27,11 @@ int main()
 
     // write the names and grades of students
     for (std::vector<Student_info>::size_type i = 0; i != students.size(); ++i){
-        std::cout << students[i].name() << std::string(maxLen + 1 - students[i].name().size(), ' ');
-        try {
-            std::streamsize prec = std::cout.precision();
-            std::cout << std::setprecision(3) << students[i].grade()
-                      << std::setprecision(prec) << std::endl;
-        } catch (std::domain_error e) {
-            std::cout << e.what() << std::endl;
-        }
+        std::streamsize prec = std::cout.precision();
+        std::cout << students[i].name() << std::string(maxLen + 1 - students[i].name().size(), ' ')
+                  << std::setprecision(3) << students[i].grade()
+                  << std::setprecision(prec) << std::endl;
+
     }
 
     return 0;
