@@ -52,3 +52,7 @@ double average(const std::vector<double>& vec){
 bool compare(const Student_info& x, const Student_info& y){
     return x.name() < y.name();
 }
+
+bool Student_info::valid() const{
+    return homework.size() != 0;
+}
