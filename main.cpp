@@ -18,9 +18,6 @@ int main()
         if (record.valid()){
             record.grade();
             students.push_back(record);
-        } else {
-
-        }
     }
 
     // alphabetize students by name
